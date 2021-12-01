@@ -1,8 +1,15 @@
 import pygame.font
 
 class Button():
+    """
+    Класс где мы реализуем кнопку "Play"
+    """
 
     def __init__(self, ai_settings, screen, msg):
+        """
+        Иницируем настройки кнопки, задаем цвет кнопки, текста,
+        шрифт текста, и положение кнопки.
+        """
         self.screen = screen
         self.screen_rect = screen.get_rect()
         
@@ -17,11 +24,17 @@ class Button():
         self.prep_msg(msg)
 
     def prep_msg(self, msg):
+        """
+        Задаем кнопке значения
+        """
         self.msg_image = self.font.render(msg, True, self.text_color,
             self.button_color)
         self.msg_image_rect = self.msg_image.get_rect()
         self.msg_image_rect.center = self.rect.center
         
     def draw_button(self):
+        """
+        Отрисовываем кнопку
+        """
         self.screen.fill(self.button_color, self.rect)
         self.screen.blit(self.msg_image, self.msg_image_rect)

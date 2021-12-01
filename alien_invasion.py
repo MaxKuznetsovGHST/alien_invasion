@@ -9,6 +9,10 @@ from ship import Ship
 import game_functions as gf
 
 def run_game():
+    """
+    Запуск нашей игры, настроек, корабля, пришельцев,
+    очков, жизней и других функций.
+    """
     pygame.init()
     ai_settings = Settings()
     screen = pygame.display.set_mode(

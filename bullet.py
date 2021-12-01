@@ -2,8 +2,15 @@ import pygame
 from pygame.sprite import Sprite
 
 class Bullet(Sprite):
+    """
+    Класс где мы будем реализовывать работу пулей.
+    """
 
     def __init__(self, ai_settings, screen, ship):
+        """
+        Иницируем функцию пули. Задаем ей её настройки.
+        Задаем цвет. Задаем фактор скорости.
+        """
         super(Bullet, self).__init__()
         self.screen = screen
 
@@ -18,8 +25,14 @@ class Bullet(Sprite):
         self.speed_factor = ai_settings.bullet_speed_factor
 
     def update(self):
+        """
+        Обеспечиваем движение нашей пуле
+        """
         self.y -= self.speed_factor
         self.rect.y = self.y
 
     def draw_bullet(self):
+        """
+        Отрисовываем пулю
+        """
         pygame.draw.rect(self.screen, self.color, self.rect)
