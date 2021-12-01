@@ -1,8 +1,10 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Ship():
+class Ship(Sprite):
 
     def __init__(self, ai_settings, screen):
+        super(Ship, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
 
@@ -12,9 +14,9 @@ class Ship():
 
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
-        
+
         self.center = float(self.rect.centerx)
-        
+ 
         self.moving_right = False
         self.moving_left = False
         
@@ -26,7 +28,7 @@ class Ship():
             self.center += self.ai_settings.ship_speed_factor
         if self.moving_left and self.rect.left > 0:
             self.center -= self.ai_settings.ship_speed_factor
-            
+ 
         self.rect.centerx = self.center
 
     def blitme(self):
